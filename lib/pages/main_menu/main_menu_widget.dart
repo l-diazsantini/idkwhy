@@ -1,12 +1,26 @@
+import '/backend/schema/structs/index.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/custom_code/actions/index.dart' as actions;
+import '/flutter_flow/random_data_util.dart' as random_data;
 import 'package:flutter/material.dart';
 import 'main_menu_model.dart';
 export 'main_menu_model.dart';
 
 class MainMenuWidget extends StatefulWidget {
-  const MainMenuWidget({super.key});
+  const MainMenuWidget({
+    super.key,
+    required this.deviceName,
+    required this.deviceId,
+    required this.deviceRssi,
+    required this.hasWriteCharacteristic,
+  });
+
+  final String? deviceName;
+  final String? deviceId;
+  final int? deviceRssi;
+  final bool? hasWriteCharacteristic;
 
   @override
   State<MainMenuWidget> createState() => _MainMenuWidgetState();
@@ -133,6 +147,21 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                     highlightColor: Colors.transparent,
                     onTap: () async {
                       context.pushNamed('Multimeter');
+
+                      await actions.sendData(
+                        BTDeviceStruct(
+                          name: widget.deviceName,
+                          id: widget.deviceId,
+                          rssi: widget.deviceRssi,
+                        ),
+                        random_data.randomString(
+                          1,
+                          10,
+                          true,
+                          false,
+                          false,
+                        ),
+                      );
                     },
                     child: Container(
                       width: double.infinity,

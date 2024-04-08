@@ -259,29 +259,26 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                         Colors.transparent,
                                                     onTap: () async {
                                                       context.pushNamed(
-                                                        'DemoPage',
+                                                        'MainMenu',
                                                         queryParameters: {
                                                           'deviceName':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
-                                                                .name,
+                                                            '',
                                                             ParamType.String,
                                                           ),
                                                           'deviceId':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
-                                                                .id,
+                                                            '',
                                                             ParamType.String,
                                                           ),
                                                           'deviceRssi':
                                                               serializeParam(
-                                                            displayConnectedDevciesItem
-                                                                .rssi,
+                                                            0,
                                                             ParamType.int,
                                                           ),
                                                           'hasWriteCharacteristic':
                                                               serializeParam(
-                                                            true,
+                                                            false,
                                                             ParamType.bool,
                                                           ),
                                                         }.withoutNulls,
@@ -579,29 +576,26 @@ class _DeviceListWidgetState extends State<DeviceListWidget>
                                                         });
 
                                                         context.pushNamed(
-                                                          'DemoPage',
+                                                          'MainMenu',
                                                           queryParameters: {
                                                             'deviceName':
                                                                 serializeParam(
-                                                              displayDevicesItem
-                                                                  .name,
+                                                              '',
                                                               ParamType.String,
                                                             ),
                                                             'deviceId':
                                                                 serializeParam(
-                                                              displayDevicesItem
-                                                                  .id,
+                                                              '',
                                                               ParamType.String,
                                                             ),
                                                             'deviceRssi':
                                                                 serializeParam(
-                                                              displayDevicesItem
-                                                                  .rssi,
+                                                              0,
                                                               ParamType.int,
                                                             ),
                                                             'hasWriteCharacteristic':
                                                                 serializeParam(
-                                                              _model.hasWrite,
+                                                              false,
                                                               ParamType.bool,
                                                             ),
                                                           }.withoutNulls,
